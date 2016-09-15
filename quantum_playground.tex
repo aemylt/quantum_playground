@@ -1,20 +1,18 @@
-% Dominic Moylett - December 2015/January 2016
-% LaTeX template courtesy of Thomas Mortensson, Ben Collins, Graham Laming and Rob Briggs: https://github.com/thomasmortensson/bristolraspberrypipythontutorial/
+%%%%     Please only edit bits which say to edit them     %%%%
+%%%% They usually start with %///% to show where they are %%%%
 
-\documentclass[twocolumn]{article}
-\usepackage[margin=0.5in]{geometry}
+
+
+%%% START : DO NOT EDIT %%%%
+
+% Document setup
+\documentclass[14pt]{extarticle}
+
 \usepackage{listings}
-\usepackage{hyperref}
 \usepackage[usenames,dvipsnames]{color}
-\usepackage{booktabs}
-\usepackage{amsmath}
 
-\setlength{\parskip}{1em}
-
-\renewcommand{\familydefault}{\sfdefault}
 \definecolor{DarkGreen}{rgb}{0.0,0.4,0.0} % Comment color
 \definecolor{highlight}{RGB}{255,251,204} % Code highlight color
-
 \lstdefinestyle{Style1}{ % Define a style for your code snippet, multiple definitions can be made if, for example, you wish to insert multiple code snippets using different programming languages into one document
 language=C, % Detects keywords, comments, strings, functions, etc for the language specified
 backgroundcolor=\color{highlight}, % Set the background color for the snippet - useful for highlighting
@@ -41,35 +39,122 @@ stringstyle=\color{Purple}, % Strings are purple
 tabsize=2, % Number of spaces per tab in the code
 }
 
+\input{LaTeX-Worksheet-Templates/Template/WorksheetSetup.tex}
+
+%%% END : DO NOT EDIT %%%%
+
+
+
+%///% Workshop info - edit these values for your workshop
+\def\workshoptitle{Programming a Quantum Computer}
+\def\workshopsubtitle{}
+\def\workshopauthor{Dominic Moylett}
+
+\usepackage{listings}
+
+%%% START : DO NOT EDIT %%%%
+
 \begin{document}
 \lstset{style=Style1}
 
-\title{Programming a Quantum Computer}
-\author{Dominic Moylett\\
-        	Quantum Engineering Centre for Doctoral Training,\\
-		University of Bristol\\
-		\texttt{\href{mailto:dominic.moylett@bristol.ac.uk}{dominic.moylett@bristol.ac.uk}}
-		}
-\date{\today}
-\maketitle
+\input{LaTeX-Worksheet-Templates/Template/WorksheetTitlePage.tex}
 
-\section*{Worksheet Details}
+% Document setup - do not edit
+\newgeometry{margin=1.5cm}
 
-A copy of this worksheet is available online at \url{https://djmylt.github.io/quantum_playground/quantum_playground.pdf}. If anyone wants to modify this worksheet for their own workshop, they can download the original material at \url{https://github.com/djmylt/quantum_playground}.
+\renewcommand{\abstractname}{Notes to Teachers \& Helpers}
+\begin{abstract}
 
-Have any questions or comments? Find any errors? Then feel free to get in touch! My email address is at the top of this worksheet.
+\vspace{-\topsep}
+    
+\noindent
+\vspace{-\topsep}
+    
+\setlist{leftmargin=0mm}
+\itemlist {
+    \setlength{\itemsep}{18pt}
+    
+%%% END : DO NOT EDIT %%%%
+    
+% Put notes to teachers and session helpers as a bullet point list in this section
 
-\section{What is Quantum Computing?}
+%///% Begin editable content
+
+    \item This workshop is intended to last 1 hour.
+    
+    \item This workshop is intended for ages 12\textsuperscript{+} (years 8\textsuperscript{+}).
+
+    \item The content is intended to be learnt through self-directed individual or pair game play, using this worksheet as a guide.
+
+    \item The learning platform is the Quantum Computing Playground, a simulator of a quantum computer in your web browser developed by Google.
+
+    \item The Quantum Computing Playground runs most efficiently on Google Chrome.
+
+    \item Students should ideally be comfortable with logic bits and gates. If not these will be briefly discussed in Sections \ref{sec:qubits} and \ref{sec:gates}.
+
+    \item This workshop teaches the following skills:\par
+    \valuelist{1cm}{
+        \item [-] Quantum bits and gates
+        \item [-] Superposition
+        \item [-] Entanglement
+        \item [-] Deutsch's Algorithm
+    }
+    
+% End editable content
+
+%%% START : DO NOT EDIT %%%%
+
+}
+
+\end{abstract}
+
+% Document setup - do not edit
+\newgeometry{margin=1.5cm}
+
+
+%%% END : DO NOT EDIT %%%%
+
+% Sections from this point onwards are your choice, though Introduction, Conclusion (/Wrap-up/What we learnt) and Extra Resources sections are recommended.
+
+%///% Begin editable content
+
+\section{Introduction}
 
 Quantum physics is a collection of bizarre behaviours that happen to really small particles. The nature of quantum physics makes simulations of these particles really hard, even on today's fastest computers.
 
-Quantum computing came about after a number of proposals by physicists such as Richard Feynman. They suggested that in order to make computers able to simulate quantum systems, we should build computers that take advantage of the same effects that makes quantum physics hard to simulate. These computers run on a very different model of computation to our current laptops and smart phones, and can lead to more powerful machines in turn. In the decades that have followed since then, academics at many institutions -- including the University of Bristol -- have studied how quantum physics can benefit our technology, and how we can realise these benefits in practice.
+Quantum computing came about after a number of proposals by physicists such as Richard Feynman. They suggested that in order to make computers able to simulate quantum systems, we should build computers that take advantage of the same physical effects. These computers run on a very different model of computation to our current computers, and can lead to more powerful machines in turn. In the decades that have followed since then, academics at many institutions -- including the University of Bristol -- have studied how quantum physics can benefit our technology.
 
 In this workshop, we aim to highlight some of the strange effects of quantum physics, and how they can allow our computers to be faster and more powerful than otherwise. To do so, we will simulate a small quantum computer using the Quantum Computing Playground.
 
-All you need to get started is a laptop with Google Chrome installed. Open up Google Chrome and go to the website \url{http://quantumplayground.net/}. Click ``Playground'' in the menu. This will load the playground with a default script. Delete this script and click on the ``2D+Phase'' icon in the top left of the screen. We are now ready to explore the world of quantum computers!
+Let's get started. Each section is made up of three parts:
+\boxesdescription
 
-\section{Quantum Bits}
+We'll also write some information between parts and include plenty of screenshots to help you out.
+
+\group { 
+    \actions{
+        \item Open Google Chrome
+        \item Go to \url{http://www.quantumplayground.net/}
+        \item Click "Start with Basic Example"
+    }
+
+    \todo{Insert screenshot here}
+}
+
+\group {
+
+    \actions{
+        \item Delete all the current code inside the text box
+        \item Click "2D+Phase"
+    }
+    \todo{Insert screenshot here}
+
+    \notes{
+        We are now ready to explore the world of quantum computing!
+    }
+}
+
+\section{Quantum Bits \label{sec:qubits}}
 
 A classical computer is made up of bits: $1$s and $0$s that represent data. Quantum computers store data in quantum bits, or {\em qubits}. We write qubits as $|1\rangle$ and $|0\rangle$. These symbols are called {\em kets}\footnote{This notation was invented by Paul Dirac, one of the best-known quantum physicists and born and raised in Bristol.}, and are used to describe quantum states.
 
@@ -80,8 +165,6 @@ VectorSize 6
 \end{lstlisting}
 
 This line initialises $6$ qubits, all in the $|0\rangle$ state. We can see this on the left, where we see a black image with one white square in the bottom left hand corner. This image describes our state. Each square of this image represents a quantum state, and hovering over a square with the mouse will show us the quantum state, and numbers labelled Re and Im. The number Re is $0$ for all quantum states except for the state $|0\rangle$, where Re is $1$. We will see what these numbers mean in the next sections.
-
-\section{Measurement}
 
 While images like this showing off our complete quantum state are nice, we cannot look at quantum states this way in practice. Instead, we have to {\em measure} our qubits. We can do this using the \texttt{MeasureBit} command:
 
@@ -95,7 +178,7 @@ The second line measures qubit $0$ and puts the result in the \texttt{measured\_
 
 From this we get the output ``Qubit $0$ is $|0\rangle$''. So, if we set all our qubits to $|0\rangle$ and measure one of them, we find that the measured qubit is in the $|0\rangle$ state.
 
-\section{Quantum Gates}
+\section{Quantum Gates \label{sec:gates}}
 
 But data is only one half of computation. We also need be able to perform operations. Classical computers do this with logic gates, such as the $NOT$ gate, which flips a bit: $NOT(0) = 1$ and $NOT(1) = 0$.
 
@@ -118,7 +201,6 @@ Print "Qubit 0 is |" + measured_value + ">"
 Now when we measure our qubit, we find that the result is $|1\rangle$. We can also check the other direction by applying $X$ to our qubit twice before measuring it, and find that $XX|0\rangle = X|1\rangle = |0\rangle$.
 
 \section{Superposition}
-\label{sec:superposition}
 
 Another example of a single qubit gate is the Hadamard gate, $H$. Let's see what this gate does to a qubit in the $|0\rangle$ state:
 
@@ -164,40 +246,7 @@ Like the $X$ gate, applying the Hadamard gate twice will produce the original qu
 
 You might wonder at this point what other quantum states we can possibly make with a single qubit. The answer is that we can make any qubit of the form $a|0\rangle + b|1\rangle$, where $|a|^2 + |b|^2 = 1$.
 
-\section{Multiple Qubits}
-
-Multiple qubits act similarly to multiple classical bits, where we can apply quantum gates to the individual qubits. We represent these qubits in the {\em tensor product} $\otimes$. For example, suppose the first qubit is $|0\rangle$ and the second is $|1\rangle$. We write this state as $|0\rangle \otimes |1\rangle$, and often shorten it to $|01\rangle$.
-
-So for example, we can apply an $X$ gate to the first and second qubits as follows:
-
-\begin{lstlisting}
-VectorSize 6
-SigmaX 0
-SigmaX 1
-MeasureBit 0
-Print "Qubit 0 is |" + measured_value + ">"
-MeasureBit 1
-Print "Qubit 1 is |" + measured_value + ">"
-\end{lstlisting}
-
-And we find that they are in the $|11\rangle$ state, similarly to when we were acting only on individual qubits. Likewise, if we applied $X$ to only qubit $0$, then we would find that they were in the $|10\rangle$ state. So applying a quantum gate to one qubit doesn't affect the other.
-
-If we apply a Hadamard gate to both qubits, we would find that they were in their own superpositions and would produce random measurements:
-
-\begin{lstlisting}
-VectorSize 6
-Hadamard 0
-Hadamard 1
-MeasureBit 0
-Print "Qubit 0 is |" + measured_value + ">"
-MeasureBit 1
-Print "Qubit 1 is |" + measured_value + ">"
-\end{lstlisting}
-
-Like single qubits, we can produce any superposition over two qubits. Thus our state can be any form of $a|00\rangle + b|01\rangle + c|10\rangle + d|11\rangle$ where $|a|^2 + |b|^2 + |c|^2 + |d|^2 = 1$. Some example states include $|01\rangle$, $\frac{|00\rangle + |10\rangle}{\sqrt{2}}$ and $\frac{|00\rangle + |01\rangle + |10\rangle + |11\rangle}{2}$.
-
 \section{Entanglement}
-\label{sec:entanglement}
 
 Not all classical gates are single bit. The classical AND gate for example, takes two classical bits as input and produces one classical bit as output.
 
@@ -245,7 +294,6 @@ This effect is called {\em entanglement}, and is one of the strangest results of
 While we haven't been able to entangle qubits between the At-Bristol Science Centre and the Digimakers Moon Base, physicists at a number of institutions -- most famously Delft University of Technology -- have managed to successfully entangle qubits and witness these effects before light could have travelled from one qubit to the other. So there must be something more to quantum.
 
 \section{Deutsch's Algorithm}
-\label{sec:deutschs-algm}
 
 We are now ready to see one problem where quantum computers can truly outperform classical ones, first proposed by David Deutsch. Suppose we have a classical circuit $f$, which takes one bit as input and returns one bit as output. In other words, $f(0)$ is either $0$ or $1$ and $f(1)$ is either $0$ or $1$. Deutsch's problem is to determine if $f(0) = f(1)$.
 
@@ -267,22 +315,22 @@ Print "Qubit 0 is |" + measured_value + ">"
 For line 5, we pick what operation to run based on what we want $f(0)$ and $f(1)$ to be. The four possibilities are outlined below:
 
 \begin{description}
-    \item[Case $1$:] If you want $f(0) = 0 \text{ and } f(1) = 0$, then delete line $5$.
+    \item[Case $1$:] If you want $f(0) = 0 \textrm{ and } f(1) = 0$, then delete line $5$.
 
-    \item[Case $2$:] If you want $f(0) = 0 \text{ and } f(1) = 1$, then replace line $5$ with:
+    \item[Case $2$:] If you want $f(0) = 0 \textrm{ and } f(1) = 1$, then replace line $5$ with:
 
     \begin{lstlisting}
     CNot 0, 1
     \end{lstlisting}
 
-    \item[Case $3$:] If you want $f(0) = 1 \text{ and } f(1) = 0$, then replace line $5$ with:
+    \item[Case $3$:] If you want $f(0) = 1 \textrm{ and } f(1) = 0$, then replace line $5$ with:
 
     \begin{lstlisting}
     CNot 0, 1
     SigmaX 1
     \end{lstlisting}
 
-    \item[Case $4$:] Or if you want $f(0) = 1 \text{ and } f(1) = 1$, then replace line $5$ with:
+    \item[Case $4$:] Or if you want $f(0) = 1 \textrm{ and } f(1) = 1$, then replace line $5$ with:
 
     \begin{lstlisting}
     SigmaX 1
@@ -301,7 +349,7 @@ This problem doesn't sound very useful, but there are many more practical proble
 \item Peter Shor showed that you can efficiently find the prime factors of a number on a quantum computer. This problem is believed to be hard classically, as finding an efficient solution would break the RSA encryption scheme, thus potentially giving hackers access to everything from your Facebook account to your online banking details.
 \end{itemize}
 
-\section{Where is my Quantum Computer?}
+\section{Where's My Quantum Computer?}
 
 You can buy one right now! D-Wave Systems already sells quantum computers, though these computers are only built for solving a very specific problem called quantum annealing. But they are on the market, and groups ranging from Google to NASA are currently seeing how useful the quantum annealers they bought from D-Wave are for their problems.
 
@@ -309,19 +357,26 @@ But what is more interesting in the Physics community is when will we see a {\em
 
 But five qubits is not very useful; when are we going to get universal quantum computers with many qubits? Again, we don't know, but potentially soon: John Martinis at the University of California, Santa Barbara is working with Google to build a $100$ qubit universal quantum computer in 2-3 years; Microsoft Research predicts a quantum computer in ten years; and others have predicted between five and forty years. Regardless of when it comes, one thing is certain: There's a lot of excitement surrounding quantum computers right here and now.
 
-\section{Further Reading}
-\label{sec:further-reading}
+\section{Wrap-up}
+
+Quantum computing can provide us with more powerful computation, by utilising the bizarre effects of quantum physics to perform faster computations. In this workshop, we have seen superposition and entanglement as examples of non-classical physics. We have also seen them applied to Deutsch's problem to provide a measurably faster speedup over classical computers, as well hearing about how they can be applied to other problems such as factoring integers.
+
+It is worth noting that quantum computing is not the only application of quantum physics being considered. Other directions that are being explored for how quantum physics can improve our current technology include the accuracy of our measuring devices (quantum metrology) and the security of our communications (quantum cryptography). All of these are being researched right now by the Quantum Engineering and Technology Labs at the University of Bristol.
+
+\section{Extra Resources}
 
 I first heard about quantum computing from a booklet written by the University of Bristol's Ashley Montanaro, which explains many of the concepts discussed here from a theoretical perspective. That booklet is available here: \url{http://www.cs.bris.ac.uk/~montanar/gameshow.pdf}
 
 Ashley also recently gave a guest lecture on quantum computing in general, the slides of which are available here:\url{http://www.maths.bris.ac.uk/~csxam/teaching/history.pdf}
 
+I recently worked with a number of other researchers at the University of Bristol on a day of workshops dedicated to quantum computing. This was as part of Quantum in the Summer, a week of teaching people of ages 16\textsuperscript{+} about quantum physics. The worksheets for that day are available here: \url{https://github.com/djmylt/summer_school}
+
 Juan Miguel Arrazola at the University of Waterloo has been writing a collection of blog posts explaining quantum mechanics to everyone:
 
 \begin{itemize}
-\item Part one is here: \url{https://uwaterloo.ca/institute-for-quantum-computing/blog/post/anyone-can-understand-quantum-mechanics-part-1}
-\item Part two is here: \url{https://uwaterloo.ca/institute-for-quantum-computing/blog/post/anyone-can-understand-quantum-mechanics-part-2}
-\item And part three will be coming soon, so make sure to keep an eye on their blog.
+\item Part one: \url{https://uwaterloo.ca/institute-for-quantum-computing/blog/post/anyone-can-understand-quantum-mechanics-part-1}
+\item Part two: \url{https://uwaterloo.ca/institute-for-quantum-computing/blog/post/anyone-can-understand-quantum-mechanics-part-2}
+\item Part three: \url{https://uwaterloo.ca/institute-for-quantum-computing/blog/post/anyone-can-understand-quantum-mechanics-part-3}
 \end{itemize}
 
 Note that while these are the easier aspects of quantum mechanics to understand, a lot of quantum mechanics in general relies on topics that are taught at GCSE or A Level Mathematics, so be careful diving straight in. But if you want to try and get ahead, some very useful mathematical concepts to learn include:

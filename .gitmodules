@@ -1,0 +1,3 @@
+[submodule "LaTeX-Worksheet-Templates"]
+	path = LaTeX-Worksheet-Templates
+	url = git@github.com:MVSE-Outreach/LaTeX-Worksheet-Templates.git
